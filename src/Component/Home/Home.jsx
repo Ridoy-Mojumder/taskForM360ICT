@@ -1,28 +1,48 @@
+
+import { Link } from "react-router-dom";
+import { Layout, Typography, Button } from "antd";
 import Product from "../Product/Product";
+
+const { Content } = Layout;
+const { Title, Paragraph } = Typography;
 
 const Home = () => {
     return (
-        <div className="bg-gray-900 text-white min-h-screen">
+        <Layout className="bg-gray-900 text-white min-h-screen">
+            {/* Header Section */}
             <header className="bg-gradient-to-r from-purple-600 to-pink-500 py-12">
                 <div className="container mx-auto text-center px-4">
-                    <h1 className="text-5xl font-bold text-white">Welcome to Our Website</h1>
-                    <p className="text-xl text-white mt-4">Discover how we can help you achieve your goals.</p>
-                    <p className="text-xl text-white mt-2">Learn about our commitment to quality and customer satisfaction.</p>
+                    <Title className="text-5xl  text-green-500 font-extrabold mb-4">Welcome to Our Website</Title>
+                    <Paragraph className="text-xl text-white mb-8">
+                        Discover how we can help you achieve your goals.
+                    </Paragraph>
+                    <Link to="/products">
+                        <Button type="primary" size="large" className="bg-white text-gray-900 hover:bg-gray-100">
+                            Explore Products
+                        </Button>
+                    </Link>
                 </div>
             </header>
 
-            <section className="py-16">
+            {/* Main Content Section */}
+            <Content className="py-16">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-4xl font-bold mb-8 text-center">Our Products</h2>
+                    <Title level={2} className="text-4xl font-bold mb-8 text-center text-gray-200">
+                        Our Products
+                    </Title>
                     <Product />
                 </div>
-            </section>
+            </Content>
+
+            {/* Footer Section */}
             <footer className="bg-gray-800 text-white py-6">
                 <div className="container mx-auto px-4 text-center">
-                    <p>&copy; {new Date().getFullYear()} Your Company. All rights reserved.</p>
+                    <Paragraph className="text-gray-300">
+                        &copy; {new Date().getFullYear()} Your Company. All rights reserved.
+                    </Paragraph>
                 </div>
             </footer>
-        </div>
+        </Layout>
     );
 };
 
